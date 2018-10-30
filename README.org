@@ -1,0 +1,16 @@
+#+TITLE: Data structures
+
+** Introduction
+
+Here are implementations of diverse data structures in some different languages.
+Each major data structure is organized in its directory, with each variation of
+the data structure with its own directory, containing a directory for each of
+the languages that data structure is implemented in. There might be an
+implementation of the major data structure in an abstract way, like with binary
+trees.
+
+*** Motivation
+
+I started this project as a way of having a deeper understanding of data
+structures, of how they work, how I can improve them, and a better understanding
+of the differences between various languages.
