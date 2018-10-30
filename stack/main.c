@@ -17,7 +17,7 @@ int main()
 
     printf("%i\n", stack.capacity);
 
-    printf("%i\n", peek(&stack));
+    printf("stack[%i]: %i\n", stack.topIndex, peek(&stack));
 
     return 0;
 }

@@ -13,10 +13,10 @@ Stack *createStack(stackSize capacity)
 
 void reallocStack(stackSize newCapacity, Stack *stack)
 {
-    int topIndex = stack->topIndex;
-    realloc(stack->array, newCapacity * sizeof(int));
+    /* int topIndex = stack->topIndex; */
+    stack->array = (int *) realloc(stack->array, newCapacity * sizeof(int));
     stack->capacity = newCapacity;
-    stack->topIndex = topIndex;
+    /* stack->topIndex = topIndex; */
 }
 
 bool isEmpty(Stack *stack)
