@@ -4,6 +4,7 @@
 int main(/*int argc, char *argv[]*/)
 {
     BST tree = *createBST();
+    Node *res;
 
     insertNode(100, 32, &tree);
     insertNode(150, 42, &tree);
@@ -22,7 +23,7 @@ int main(/*int argc, char *argv[]*/)
         printf("deleted 120\n");
     }
 
-    Node *res = search(120, &tree);
+    res = search(120, &tree);
     printf("Search's key: %i\nSearch's data: %i\n\n", res->key, res->data);
 
     printf("Root's key: %i\nRoot's data: %i\n\n",

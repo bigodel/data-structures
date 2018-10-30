@@ -84,13 +84,13 @@ bool removeNodeRec(int key, Node **root)
         return removed;
     }
     else {
-        // case where both children are null (i.e. (*root) is a leaf)
+        /* case where both children are null (i.e. (*root) is a leaf) */
         if ((*root)->left == NULL && (*root)->right == NULL) {
             deleteNode(*root);
             *root = NULL;
             return true;
         }
-        // case where the left child is null and the right isn't
+        /* case where the left child is null and the right isn't */
         if ((*root)->left == NULL) {
             Node *tmp = *root;
             root = &(*root)->right;
@@ -98,7 +98,7 @@ bool removeNodeRec(int key, Node **root)
             deleteNode(tmp);
             return true;
         }
-        // case where the right child is null and the left isn't
+        /* case where the right child is null and the left isn't */
         else if ((*root)->right == NULL) {
             Node *tmp = *root;
             root = &(*root)->left;
@@ -108,28 +108,30 @@ bool removeNodeRec(int key, Node **root)
         }
         /* case where the root has both left and right children as not null
            sub-trees */
+        else {
+            /* here we create a node that will have the reference to the in-order
+               successor or root*/
+            Node **minNode;
+            minNode = &(*root)->right;
 
-        /* here we create a node that will have the reference to the inorder
-           successor or root*/
-        Node **minNode = &(*root)->right;
+            /* find the in-order successor of root and update the number of left
+               sub-trees in each step (its basically getting the left most node of
+               minNode) */
+            while ((*minNode)->left != NULL) {
+                (*minNode)->nLeft--;
+                minNode = (Node **) &(*minNode)->left;
+            }
 
-        /* find the in-order successor of root and update the number of left
-           sub-trees in each step (its basically getting the left most node of
-           minNode) */
-        while ((*minNode)->left != NULL) {
-            (*minNode)->nLeft--;
-            minNode = (Node **) &(*minNode)->left;
+            /* assign the key of the in-order successor of root to root */
+            (*root)->key = (*minNode)->key;
+
+            /* delete the successor using the pointer to it and set the deleted
+               memory region to null so we know it was deleted */
+            deleteNode(*minNode);
+            *minNode = NULL;
+
+            removed = true;
         }
-
-        // assign the key of the in-order successor of root to root
-        (*root)->key = (*minNode)->key;
-
-        /* delete the successor using the pointer to it and set the deleted
-           memory region to null so we know it was deleted */
-        deleteNode(*minNode);
-        *minNode = NULL;
-
-        removed = true;
     }
 
     return removed;

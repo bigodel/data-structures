@@ -1,12 +1,12 @@
 # Makefile for the Binary Search Tree
 .POSIX:
 
-INC = node.h bst.h # io.h
-SRC = node.c bst.c main.c # io.h
-OBJ = $(SRC:.cpp=.o)
+INC = node.h bst.h
+SRC = node.c bst.c main.c
+OBJ = $(SRC:.c=.o)
 
 CC = cc
-CFLAGS = -O3 -std=c++11 -I. -W -Wall
+CFLAGS = -O3 -ansi -pedantic -I. -W -Wall
 
 all: options bst
 
@@ -15,15 +15,14 @@ options:
 	@echo "CFLAGS = $(CFLAGS)"
 	@echo "CC     = $(CC)"
 
-.SUFFIXES: .cpp .o
+.SUFFIXES: .c .o
 
-.cpp.o:
+.c.o:
 	$(CC) $(CFLAGS) -c $<
 
 node.o: node.h
 bst.o: bst.h
-# io.o: io.h bst.h
-main.o: bst.hpp # io.hpp
+main.o: bst.h
 
 bst: $(OBJ)
 	$(CC) -o $@ $(OBJ)

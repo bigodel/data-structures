@@ -7,15 +7,15 @@ int main()
     push(10, &stack);
     push(15, &stack);
 
-    printf("%i\n", peek(&stack));
+    printf("stack[%i]: %i\n", stack.topIndex, peek(&stack));
 
     pop(&stack);
 
-    printf("%i\n", peek(&stack));
+    printf("stack[%i]: %i\n", stack.topIndex, peek(&stack));
 
     reallocStack(200, &stack);
 
-    printf("%i\n", stack.capacity);
+    printf("stack's max capacity: %i\n", stack.capacity);
 
     printf("stack[%i]: %i\n", stack.topIndex, peek(&stack));
 
