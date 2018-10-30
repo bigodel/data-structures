@@ -19,7 +19,7 @@ typedef struct BST_s
     Node *root;
 } BST;
 
-BST *initBST();
+BST *createBST();
 bool insertNodeRec(Node *newNode, Node **root);
 void insertNode(int key, int data, BST *tree);
 Node *searchRec(int key, Node *root);

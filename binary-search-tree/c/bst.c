@@ -1,6 +1,6 @@
 #include "bst.h"
 
-BST *initBST()
+BST *createBST()
 {
     BST *newBST = (BST *) malloc(sizeof(BST));
     newBST->root = NULL;
@@ -37,7 +37,7 @@ bool insertNodeRec(Node *newNode, Node **root)
 
 void insertNode(int key, int data, BST *tree)
 {
-    insertNodeRec(initNode(key, data), &tree->root);
+    insertNodeRec(createNode(key, data), &tree->root);
 }
 
 Node *searchRec(int key, Node *root)
@@ -154,5 +154,6 @@ void printTree(BST *tree)
         printf("Chose a valid option!\n");
         printTree(tree);
     }
+
     /* TODO: the traversals (might need to implement stack) */
 }

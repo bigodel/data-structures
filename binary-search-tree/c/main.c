@@ -3,7 +3,7 @@
 
 int main(/*int argc, char *argv[]*/)
 {
-    BST tree = *initBST();
+    BST tree = *createBST();
 
     insertNode(100, 32, &tree);
     insertNode(150, 42, &tree);

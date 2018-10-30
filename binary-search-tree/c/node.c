@@ -1,6 +1,6 @@
 #include "node.h"
 
-Node *initNode(int key, int data)
+Node *createNode(int key, int data)
 {
     Node *node = (Node *) malloc(sizeof(Node));
     node->key = key;
