@@ -29,7 +29,7 @@ bool isEmpty(Stack *stack)
 
 bool isFull(Stack *stack)
 {
-    if (stack->topIndex == (int) stack->capacity)
+    if (stack->topIndex == (int) stack->capacity - 1)
         return true;
     else
         return false;
